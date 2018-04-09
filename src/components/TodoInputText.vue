@@ -4,7 +4,8 @@
 		class="my-input" 
 		ref="input"
 		:value="value"
-		@input="updateValue($event.target.value)">
+		@input="$emit('input',$event.target.value)"
+		@keydown.enter="$emit('enter')">
 </template>
 <script>
 export default {
@@ -15,11 +16,7 @@ export default {
 		}
 	},
 	methods: {
-		updateValue (value) {
-			
-			//触发父组件input事件
-			this.$emit('input',value)
-		}
+	
 	}
 }
 </script>
